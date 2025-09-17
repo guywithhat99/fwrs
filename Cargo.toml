@@ -1,5 +1,5 @@
 [workspace]
-members = ["firmware-rs", "teensy-core"]
+members = ["app", "teensy-core"]
 resolver = "3"
 
 [profile.dev]

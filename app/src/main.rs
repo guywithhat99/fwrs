@@ -6,15 +6,11 @@ mod controls;
 mod devices;
 mod utils;
 
-use cortex_m::asm;
-use cortex_m_rt::entry;
-
+use imxrt_rt::entry;
 use panic_halt as _; // panic handler... just halts
 
 #[entry]
 fn main() -> ! {
     // init everything
-    loop {
-        asm::nop();
-    }
+    loop {}
 }
