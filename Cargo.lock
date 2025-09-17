@@ -60,7 +60,7 @@ dependencies = [
 ]
 
 [[package]]
-name = "fwrs"
+name = "firmware-rs"
 version = "0.1.0"
 dependencies = [
  "cortex-m",
@@ -141,6 +141,10 @@ dependencies = [
  "quote",
  "unicode-ident",
 ]
+
+[[package]]
+name = "teensy-core"
+version = "0.1.0"
 
 [[package]]
 name = "unicode-ident"
