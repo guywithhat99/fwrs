@@ -1,9 +1,12 @@
+#![cfg_attr(not(test), no_std)]
+
 pub fn add(left: u64, right: u64) -> u64 {
     left + right
 }
 
 #[cfg(test)]
 mod tests {
+    // In test builds, `std` is available automatically.
     use super::*;
 
     #[test]
