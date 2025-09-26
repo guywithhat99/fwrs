@@ -24,3 +24,9 @@ target
 # Added by cargo
 
 /target
+
+#compiler
+/tools/compiler
+
+#custom
+.DS_Store

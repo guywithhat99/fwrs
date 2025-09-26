@@ -6,13 +6,8 @@ use imxrt_ral as ral;
 use ral::gpio::GPIO2;
 use ral::iomuxc::IOMUXC;
 use cortex_m::asm;
+
 mod fcb;
-
-mod comms;
-mod controls;
-mod devices;
-mod utils;
-
 
 const CPU_HZ: u32 = 600_000_000;
 
