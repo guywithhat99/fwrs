@@ -24,6 +24,7 @@ target
 # Added by cargo
 
 /target
+fwrs.hex
 
 #compiler
 /tools/compiler
