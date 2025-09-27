@@ -1,0 +1,15 @@
+[package]
+name = "teensy4-pins"
+version = "0.3.2"
+description = """
+Helpers for configuring and using a Teensy 4's pins.
+Part of the teensy4-rs project.
+"""
+edition = "2021"
+
+[dependencies.imxrt-iomuxc]
+workspace = true
+features = ["imxrt1060"]
+
+[package.metadata.docs.rs]
+default-target = "thumbv7em-none-eabihf"

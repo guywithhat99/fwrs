@@ -1,0 +1,30 @@
+[package]
+name = "teensy4-bsp"
+version = "0.5.1"
+edition = "2024"
+description = """
+Rust-based BSP for the Teensy 4.
+Part of the teensy4-rs project.
+"""
+
+[dependencies.cortex-m]
+features = ["critical-section-single-core"]
+workspace = true
+
+[dependencies.imxrt-ral]
+workspace = true
+
+[dependencies.imxrt-hal]
+workspace = true
+
+[dependencies.imxrt-rt]
+workspace = true
+optional = true
+
+[build-dependencies.imxrt-rt]
+workspace = true
+optional = true
+
+[dependencies.teensy4-pins]
+version = "0.3.1"
+path = "../teensy4-pins"

@@ -1,0 +1,22 @@
+[package]
+name = "teensy4-panic"
+version = "0.2.3"
+description = """
+Panic handler for the Teensy 4.
+Part of the teensy4-rs project.
+"""
+edition = "2021"
+
+[package.metadata.docs.rs]
+default-target = "thumbv7em-none-eabihf"
+
+[features]
+default = ["panic-handler"]
+panic-handler = []
+
+[lib]
+test = false
+
+[dependencies.log]
+optional = true
+version = "0.4"

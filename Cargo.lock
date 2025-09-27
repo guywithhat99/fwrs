@@ -172,6 +172,7 @@ dependencies = [
  "cortex-m",
  "imxrt-boot-gen",
  "imxrt-hal",
+ "imxrt-iomuxc 0.3.0",
  "imxrt-ral",
  "imxrt-rt",
  "panic-halt",
@@ -213,7 +214,7 @@ dependencies = [
  "fugit",
  "futures",
  "imxrt-dma",
- "imxrt-iomuxc",
+ "imxrt-iomuxc 0.2.10",
  "imxrt-ral",
  "imxrt-usbd",
  "nb 1.1.0",
@@ -226,6 +227,12 @@ name = "imxrt-iomuxc"
 version = "0.2.10"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "074cb47c36b343ad554356e74ceb9bd26bb91dd39340bee075ed85f56dfe207b"
+
+[[package]]
+name = "imxrt-iomuxc"
+version = "0.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "84f18ac9e9dc69b6ffe23dd15896c5faa260b5f1097baa5d23c3f3ed7350292d"
 
 [[package]]
 name = "imxrt-ral"
@@ -258,6 +265,12 @@ dependencies = [
  "ral-registers",
  "usb-device",
 ]
+
+[[package]]
+name = "log"
+version = "0.4.28"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "34080505efa8e45a4b816c349525ebe327ceaa8559756f0356cba97ef3bf7432"
 
 [[package]]
 name = "nb"
@@ -360,6 +373,20 @@ dependencies = [
  "proc-macro2",
  "quote",
  "unicode-ident",
+]
+
+[[package]]
+name = "teensy4-panic"
+version = "0.2.3"
+dependencies = [
+ "log",
+]
+
+[[package]]
+name = "teensy4-pins"
+version = "0.3.2"
+dependencies = [
+ "imxrt-iomuxc 0.3.0",
 ]
 
 [[package]]

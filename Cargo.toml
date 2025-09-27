@@ -1,7 +1,32 @@
-[workspace]
-members = ["crates/fwrs"]
-default-members = ["crates/fwrs"]
-resolver = "2"
-
-[workspace.package]
+[package]
+name = "fwrs"
+version = "0.1.0"
 edition = "2024"
+
+[workspace]
+resolver = "2"
+members = [ "teensy4-panic",
+    "teensy4-pins",
+]
+
+[workspace.dependencies]
+imxrt-hal = { version = "0.5.11" }
+imxrt-ral = { version = "0.5.4" }
+imxrt-rt = { version = "0.1.7" }
+imxrt-boot-gen = { version = "0.3.4" }
+panic-halt = "1.0.0"
+cortex-m = "0.7.7"
+imxrt-iomuxc = { version = "0.3.0" }
+
+[dependencies]
+imxrt-hal = { workspace = true, features = ["imxrt1060"] }
+imxrt-ral = { workspace = true, features = ["imxrt1062", "rt"] }
+imxrt-rt = { workspace = true, features = ["device"] }
+imxrt-iomuxc = { workspace = true, features = ["imxrt1060"] }
+imxrt-boot-gen = { workspace = true, features = ["imxrt1060"] }
+panic-halt = { workspace = true }
+cortex-m = { workspace = true }
+
+[build-dependencies]
+# The same runtime as above.
+imxrt-rt = { workspace = true }
