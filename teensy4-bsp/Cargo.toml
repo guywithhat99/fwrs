@@ -13,18 +13,27 @@ workspace = true
 
 [dependencies.imxrt-ral]
 workspace = true
+features = ["imxrt1062"]
 
 [dependencies.imxrt-hal]
 workspace = true
+features = ["imxrt1060"]
 
 [dependencies.imxrt-rt]
 workspace = true
 optional = true
+features = ["device"]
 
 [build-dependencies.imxrt-rt]
 workspace = true
 optional = true
+features = ["device"]
 
 [dependencies.teensy4-pins]
-version = "0.3.1"
 path = "../teensy4-pins"
+
+[features]
+rt = [
+    "dep:imxrt-rt",
+    "imxrt-ral/rt",
+]

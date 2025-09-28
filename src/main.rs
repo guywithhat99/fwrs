@@ -1,32 +1,30 @@
 #![no_main]
 #![no_std]
 
-use imxrt_hal as hal;
-use imxrt_ral as ral;
-use ral::gpio::GPIO2;
-use ral::iomuxc::IOMUXC;
+//The major compnents of embedded rust needed to run on microcontroller
+mod fcb;
+use teensy4_bsp::{self as bsp, rt::entry};
+use teensy4_panic as _;
+
+//bring the board into scope
+use bsp::board;
+
+//used for delay fuction
 use cortex_m::asm;
 
-mod fcb;
-
-const CPU_HZ: u32 = 600_000_000;
 
 //entry macro
-use imxrt_rt::entry;
-use panic_halt as _;
-
 #[entry]
 fn main() -> ! {
-    // Safety: we're the only code that "owns" the IOMUXC and GPIO2 peripherals.
-    let iomuxc = unsafe { IOMUXC::instance() };
-    let gpio2 = unsafe { GPIO2::instance() };
+    let board::Resources {pins, mut gpio2, ..} = board::t41(board::instances());
 
-    let mut gpio2 = hal::gpio::Port::new(gpio2);
-    let pads = hal::iomuxc::into_pads(iomuxc);
+    let led= board::led(&mut gpio2, pins.p13);
 
-    let led = gpio2.output(pads.gpio_b0.p03);
     loop {
         led.toggle();
-        asm::delay(CPU_HZ);
+        asm::delay(600000000);
+
+
+
     }
 }

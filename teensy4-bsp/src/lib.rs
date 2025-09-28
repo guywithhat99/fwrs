@@ -82,8 +82,7 @@ pub use imxrt_rt as rt;
 
 pub use teensy4_pins as pins;
 
-// Need to reference this so that it doesn't get stripped out
-use teensy4_fcb as _;
+
 
 /// Exported for RTIC. Do not use.
 #[doc(hidden)]

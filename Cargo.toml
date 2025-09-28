@@ -7,8 +7,10 @@ edition = "2024"
 resolver = "2"
 members = [ "teensy4-panic",
     "teensy4-pins",
+    "teensy4-bsp"
 ]
 
+#whole workspae dependencies
 [workspace.dependencies]
 imxrt-hal = { version = "0.5.11" }
 imxrt-ral = { version = "0.5.4" }
@@ -16,17 +18,32 @@ imxrt-rt = { version = "0.1.7" }
 imxrt-boot-gen = { version = "0.3.4" }
 panic-halt = "1.0.0"
 cortex-m = "0.7.7"
-imxrt-iomuxc = { version = "0.3.0" }
+imxrt-iomuxc = { version = "0.2.10" }
 
+#for the firmware dependencies
 [dependencies]
 imxrt-hal = { workspace = true, features = ["imxrt1060"] }
 imxrt-ral = { workspace = true, features = ["imxrt1062", "rt"] }
-imxrt-rt = { workspace = true, features = ["device"] }
+imxrt-rt = { workspace = true, features = ["device"], optional = true}
 imxrt-iomuxc = { workspace = true, features = ["imxrt1060"] }
 imxrt-boot-gen = { workspace = true, features = ["imxrt1060"] }
 panic-halt = { workspace = true }
 cortex-m = { workspace = true }
 
+[dependencies.teensy4-bsp]
+path = "teensy4-bsp"
+features = ["rt"]
+
+[dependencies.teensy4-pins]
+path = "teensy4-pins"
+
+[dependencies.teensy4-panic]
+path = "teensy4-panic"
+features = ["log"]
+
 [build-dependencies]
 # The same runtime as above.
 imxrt-rt = { workspace = true }
+
+[features]
+rt = ["dep:imxrt-rt", "imxrt-ral/rt"]
