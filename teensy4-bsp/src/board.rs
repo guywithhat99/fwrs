@@ -187,7 +187,7 @@ pub type T40Resources = Resources<pins::t40::Pins>;
 /// Resources for a Teensy 4.1.
 ///
 /// Use [`t41`] to construct this. The pins are specific to the Teensy 4.1.
-pub type T41Resources = Resources<pins::t41::Pins>;
+pub type  T41Resources = Resources<pins::t41::Pins>;
 /// Resources for a Teensy MicroMod.
 ///
 /// Use [`tmm`] to construct this. The pins are specific to the Teensy MicroMod.

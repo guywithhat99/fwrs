@@ -16,6 +16,8 @@ use cortex_m::asm;
 //entry macro
 #[entry]
 fn main() -> ! {
+    //get the instances of teensy hardware and assigns them into the resoruces stuct in the board module
+    // ".." just says ignore everything else, when we need more peripherals, we can explictly bind them here
     let board::Resources {pins, mut gpio2, ..} = board::t41(board::instances());
 
     let led= board::led(&mut gpio2, pins.p13);
