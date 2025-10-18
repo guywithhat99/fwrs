@@ -29,6 +29,8 @@ imxrt-iomuxc = { workspace = true, features = ["imxrt1060"] }
 imxrt-boot-gen = { workspace = true, features = ["imxrt1060"] }
 panic-halt = { workspace = true }
 cortex-m = { workspace = true }
+usb-device = "0.2.9"
+usbd-serial = "0.1.1"
 
 [dependencies.teensy4-bsp]
 path = "teensy4-bsp"
